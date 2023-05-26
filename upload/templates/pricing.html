@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- main-area -->
+<main>
+  <!-- breadcrumb-area -->
+  <section
+    class="breadcrumb-area breadcrumb-bg"
+    data-background="{% static 'img/bg/breadcrumb_bg.jpg' %}"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="breadcrumb-content">
+            <h2 class="title">Our Plan</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Pricing
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb-area-end -->
+
+  <!-- pricing-area -->
+  <section
+    class="pricing-area pricing-bg"
+    data-background="{% static 'img/bg/pricing_bg.jpg' %}"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="section-title title-style-three text-center mb-70">
+            <span class="sub-title">our pricing plans</span>
+            <h2 class="title">Our Pricing Strategy</h2>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-box-wrap">
+        <div class="row justify-content-center">
+          
+         {% for i in pricing %}
+
+          <div class="col-lg-4 col-md-6 col-sm-8">
+            <div class="pricing-box-item mb-30">
+              <div class="pricing-top">
+                <h6>{{i.type}}</h6>
+                <div class="price">
+                  <h3>{{i.montlyFee}}</h3>
+                  <span>Monthly</span>
+                </div>
+              </div>
+              <div class="pricing-list">
+                <ul>
+                  <li class="quality">
+                    <i class="fas fa-check"></i> Video quality <span>{{i.videoQuality}}</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Resolution <span>{{i.resulution}}</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Screens you can watch
+                    <span>{{i.maxScreen}}</span>
+                  </li>
+                  <li><i class="fas fa-check"></i> Cancel anytime</li>
+                </ul>
+              </div>
+              <div class="pricing-btn">
+                <a href="#" class="btn">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- pricing-area-end -->
+
+ 
+</main>
+{% endblock %}
